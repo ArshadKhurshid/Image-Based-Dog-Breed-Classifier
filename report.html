@@ -13239,7 +13239,7 @@ There are 11 dog images with detected human face.
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Question 2:</strong> This algorithmic choice necessitates that we communicate to the user that we accept human images only when they provide a clear view of a face (otherwise, we risk having unneccessarily frustrated users!). In your opinion, is this a reasonable expectation to pose on the user? If not, can you think of a way to detect humans in images that does not necessitate an image with a clearly presented face?</p>
 <p><strong>Answer:</strong>
-We are working with detectMultiScale algorithm which needs to have clear edges. Clear view of images will give distinct edges that will help to categories them.</p>
+"We accept human images only when they provide a clear view of face" is a reasonable expectations as lot of it depends on dataset on which neural network is trained on.Providing clear view of face will raise the probability of human face detection. Since deeplearning is still not as good as human identification performance. Hairy faces and overclothing ot tatoo face may have problem in identification.</p>
 <p>We suggest the face detector from OpenCV as a potential way to detect human images in your algorithm, but you are free to explore other approaches, especially approaches that make use of deep learning :).  Please use the code cell below to design and test your own face detection algorithm.  If you decide to pursue this <em>optional</em> task, report performance on each of the datasets.</p>
 
 </div>
@@ -14228,7 +14228,9 @@ I have first initialize the model.</p>
 <ul>
 <li>Applied Global average pooling to minimize overfitting and detect feature in single frame.</li>
 <li>Added dense layer with 500 relu to amke it deeper and better classifier.</li>
-<li>Added 133 softmax layer for class output</li>
+<li><p>Added 133 softmax layer for class output</p>
+<p>Xception which is InceptionV3 gives freedom to do all the convolution 1X1, 3X3, 5X5 and let the model picks what is best. This architecture allows model to recover both local feature via smaller convolutions and high abstracted features with larger convolutions.</p>
+</li>
 </ul>
 
 </div>
